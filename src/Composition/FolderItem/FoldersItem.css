@@ -1,0 +1,10 @@
+.foldersButtonContainer{
+    display:flex;
+    flex-direction:column;
+    border-top:1px solid red;
+}
+
+.folderButton{
+   border-bottom:1px solid red;
+    height:40px;
+}
