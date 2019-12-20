@@ -4,24 +4,25 @@ import DeleteButton from '../DeleteButton/DeleteButton'
 import ApiContext from '../../ApiContext'
 
 
-class NoteItem extends Component {
+class NotePageItem extends Component {
     static contextType = ApiContext;
     render(){
+
         function makeDate (modified){
             let d = new Date(modified)
             let day= d.toDateString()
             return(day)
         }
         
-        let date = makeDate(this.props.note.modified)
+        let date = makeDate(this.context.currentNote.modified)
         
         return(<div>
-            <Link to={`/note/${this.props.note.id}`} onClick={()=>{this.context.setNote(this.props.note)}}>{this.props.note.name}</Link>
+            <h2>{this.context.currentNote.name}</h2>
             <p>Date modified on {date} </p>
-            <DeleteButton noteId = {this.props.note.id}/>
+            <DeleteButton/>
         </div>)
         
     }
 }
 
-export default NoteItem
+export default NotePageItem

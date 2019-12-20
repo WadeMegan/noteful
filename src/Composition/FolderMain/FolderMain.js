@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import NoteItem from '../NoteItem/NoteItem'
 import AddNoteButton from '../AddNoteButton/AddNoteButton';
+import ApiContext from '../../ApiContext'
 
 class FolderMain extends Component {
-    //{this.props.folderId}
+    static contextType = ApiContext;
     render(){
         return(<div>
-            {this.props.notes
+            {this.context.notes
                 .map((note,index)=>{
-                    if (this.props.folderId===note.folderId){
+                    if (this.context.currentFolder.id===note.folderId){
                         return(<NoteItem note={note} key={index}/>)
                     }
                 })

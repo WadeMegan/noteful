@@ -6,12 +6,15 @@ import FolderMain from '../FolderMain/FolderMain'
 class FolderPage extends Component {
     
     render(){
-        const folder = this.props.state.folders.find(f =>
-            f.id === this.props.match.params.folderId)
+
+        
+        /*const {props: {match}} = this.props
+        const folder = this.context.folders.find(f =>
+            f.id === match.params.folderId)*/
 
         return(<div className="contentContainer">
-            <HomeSideBar folders={this.props.state.folders}/>
-            <FolderMain notes={this.props.state.notes} folderId={this.props.match.params.folderId}/>
+            <HomeSideBar/>
+            <FolderMain/>
         </div>
         )
     }

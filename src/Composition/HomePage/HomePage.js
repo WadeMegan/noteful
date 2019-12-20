@@ -7,8 +7,8 @@ class HomePage extends Component {
     
     render(){
         return(<div className="contentContainer">
-                <HomeSideBar folders={this.props.state.folders}/>
-                <HomeMain notes={this.props.state.notes}/>
+                <HomeSideBar/>
+                <HomeMain/>
             </div>
         )
     }

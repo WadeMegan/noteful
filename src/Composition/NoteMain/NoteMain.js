@@ -1,16 +1,23 @@
 import React, {Component} from 'react';
 import NoteItem from '../NoteItem/NoteItem'
+import ApiContext from '../../ApiContext'
+import NotePageItem from '../NotePageItem/NotePageItem'
 
-class HomeMain extends Component {
+class NoteMain extends Component {
+    static contextType = ApiContext;
     
     render(){
 
+        /*const {props: {match}} = this.props
+        const note = this.context.notes.find(n =>
+            n.id === match.params.noteId)*/
+
         return(<div className="main">
-            <NoteItem note={this.props.note}/>
-            <p>{this.props.note.content}</p>
+            <NotePageItem/>
+            <p>{this.context.currentNote.content}</p>
         </div>
         )
     }
 }
 
-export default HomeMain
+export default NoteMain
