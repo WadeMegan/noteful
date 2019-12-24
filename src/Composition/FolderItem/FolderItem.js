@@ -5,13 +5,29 @@ import ApiContext from '../../ApiContext'
 
 class FolderItem extends Component {
     static contextType = ApiContext;
+
+        checkFolder=()=>{
+            console.log(this.context.currentFolder.id)
+            console.log(this.props.folder.id)
+            if(this.context.currentFolder.id === this.props.folder.id){
+                return <li className="currentFolder folderButton">
+                {this.props.folder.name}
+            </li>
+            }
+            else{
+                return <li className="folderButton">
+                    {this.props.folder.name}
+                </li>
+            }
+        }
+
     render(){
 
-        return(<li>
-            <Link to={`/folder/${this.props.folder.id}`} onClick={()=>{this.context.setFolder(this.props.folder)}}>
-                {this.props.folder.name}
+        return(
+            <Link className="folderButtonLink" to={`/folder/${this.props.folder.id}`} onClick={()=>{this.context.setFolder(this.props.folder)}}>
+                {this.checkFolder()}
             </Link>
-        </li>)
+        )
         
     }
 }

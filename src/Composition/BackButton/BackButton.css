@@ -1,0 +1,12 @@
+.backButton{
+    border:1px solid black;
+    width:90%;
+    height:40px;
+    font-size:16px;
+}
+
+.backButton:hover{
+    background-color:black;
+    color:white;
+    cursor: pointer;
+}

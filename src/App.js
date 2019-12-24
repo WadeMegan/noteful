@@ -8,7 +8,10 @@ import NotePage from './Composition/NotePage/NotePage'
 import './App.css'
 import config from './config'
 import ApiContext from './ApiContext';
+import AddFolder from './Composition/AddFolder/AddFolder'
 import { tsImportEqualsDeclaration } from '@babel/types';
+import { createDecipher } from 'crypto';
+import AddNote from './Composition/AddNote/AddNote'
 
 class App extends Component {
 
@@ -16,7 +19,11 @@ class App extends Component {
     notes:[],
     folders:[],
     currentNote: null,
-    currentFolder: null
+    currentFolder: {},
+    folderForm: {
+      value: null,
+      touched: false
+    }
   }
 
   deleteNote = (noteId) => {
@@ -40,6 +47,25 @@ class App extends Component {
       currentFolder: folder
     }
     )
+  }
+
+  setFolderForm = (value) => {
+    this.setState(
+      {folderForm: 
+        {value:value,
+        touched:true}
+      }
+    )
+  }
+
+  addFolder = (data) =>{
+    this.state.folders.push(data)
+    this.fetchData()
+  }
+
+  addNote= (data)=>{
+    this.state.notes.push(data)
+    this.fetchData()
   }
 
   fetchData = () => {
@@ -68,6 +94,10 @@ class App extends Component {
     this.fetchData()
 }
 
+componentDidUpdate(){
+  //this.fetchData()
+  //console.log(this.state.notes)
+}
 
   /*constructor(props){
     super(props)
@@ -89,7 +119,9 @@ class App extends Component {
       setNote: this.setNote,
       setFolder: this.setFolder,
       fetchData: this.fetchData,
-      deleteNote:this.deleteNote
+      deleteNote:this.deleteNote,
+      addFolder:this.addFolder,
+      addNote:this.addNote
     }
     
     return (
@@ -107,6 +139,14 @@ class App extends Component {
           <Route 
             path='/note/:noteId'
             render={(props)=><NotePage props={props}/>}
+          />
+          <Route
+            path='/AddFolder'
+            render={(props)=><AddFolder/>}
+          />
+          <Route
+            path='/AddNote'
+            render={(props)=><AddNote/>}
           />
         </main>
       </ApiContext.Provider>

@@ -9,6 +9,6 @@ export default React.createContext({
   setNote: () => {},
   setFolder: () => {},
   currentNote: null,
-  currentFolder: null,
+  currentFolder: {},
   fetchData: () =>{}
 })

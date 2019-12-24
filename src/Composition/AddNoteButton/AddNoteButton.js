@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom'
+import './AddNoteButton.css'
 
 class AddNoteButton extends Component {
 
     render(){
         return(
-            <button>Add note</button>
+            <Link to={`/AddNote`} className="addNoteLink"><button className="addNoteButton">Add note</button></Link> 
         )
     }
 }

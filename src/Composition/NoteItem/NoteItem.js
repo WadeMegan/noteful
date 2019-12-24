@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
 import DeleteButton from '../DeleteButton/DeleteButton'
 import ApiContext from '../../ApiContext'
+import './NoteItem.css'
 
 
 class NoteItem extends Component {
@@ -15,9 +16,11 @@ class NoteItem extends Component {
         
         let date = makeDate(this.props.note.modified)
         
-        return(<div>
-            <Link to={`/note/${this.props.note.id}`} onClick={()=>{this.context.setNote(this.props.note)}}>{this.props.note.name}</Link>
-            <p>Date modified on {date} </p>
+        return(<div className="noteItem">
+            <div className="noteInfo">
+                <Link className="noteName" to={`/note/${this.props.note.id}`} onClick={()=>{this.context.setNote(this.props.note)}}>{this.props.note.name}</Link>
+                <p className="date">Date modified on {date} </p>
+            </div>
             <DeleteButton noteId = {this.props.note.id}/>
         </div>)
         

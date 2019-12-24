@@ -7,10 +7,9 @@ import ApiContext from '../../ApiContext'
 class HomeSideBar extends Component {
     static contextType = ApiContext;
     render(){
-        console.log(this.context)
         return(
-            <div className="sideBar homeSideBar">
-                <ul>
+            <div className="sideBar">
+                <ul className="folderButtonContainer">
                     {this.context.folders
                         .map((folder,index)=>{
                             return(

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import ApiContext from '../../ApiContext'
 import config from '../../config'
+import {Link} from 'react-router-dom'
+import './DeleteButton.css'
 
 class DeleteButton extends Component {
     static contextType = ApiContext;
@@ -9,7 +11,6 @@ class DeleteButton extends Component {
     
     render(){
 
-        console.log(this.props.noteId)
         function deleteNoteRequest(noteId, callback){
             fetch(`${config.API_ENDPOINT}/notes/${noteId}`,{
                 method: 'DELETE',
@@ -36,7 +37,7 @@ class DeleteButton extends Component {
         return(
             <ApiContext.Consumer>
                 {(context)=>(
-                    <button onClick={()=>{deleteNoteRequest(this.props.noteId, context.deleteNote)}}>Delete Note</button>
+                    <Link to="/"><button className="deleteButton" onClick={()=>{deleteNoteRequest(this.props.noteId, context.deleteNote)}}>Delete Note</button></Link>
                 )}
             </ApiContext.Consumer>
         )

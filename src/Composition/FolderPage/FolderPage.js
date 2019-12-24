@@ -12,7 +12,7 @@ class FolderPage extends Component {
         const folder = this.context.folders.find(f =>
             f.id === match.params.folderId)*/
 
-        return(<div className="contentContainer">
+        return(<div className="contentContainer folderPage">
             <HomeSideBar/>
             <FolderMain/>
         </div>

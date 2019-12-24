@@ -16,12 +16,14 @@ class NotePageItem extends Component {
         
         let date = makeDate(this.context.currentNote.modified)
         
-        return(<div>
-            <h2>{this.context.currentNote.name}</h2>
-            <p>Date modified on {date} </p>
-            <DeleteButton/>
+        return(
+        <div className="noteItem">
+            <div className="noteInfo">
+                <p className="noteName">{this.context.currentNote.name}</p>
+                <p className="date">Date modified on {date} </p>
+            </div>
+            <DeleteButton noteId = {this.context.currentNote.id}/>
         </div>)
-        
     }
 }
 

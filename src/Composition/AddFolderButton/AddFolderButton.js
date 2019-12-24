@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+import './AddFolder.css'
+
 
 class AddFolderButton extends Component {
     
     render(){
         return(
-            <button className="addFolderButton">Add folder</button>
+            <Link to={`/AddFolder`} className="addFolderButton">Add folder</Link>        
         )
     }
 }

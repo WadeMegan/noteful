@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import NoteSideBar from '../NoteSideBar/NoteSideBar';
 import NoteMain from '../NoteMain/NoteMain'
-import './NotePage.css'
 import ApiContext from '../../ApiContext'
 
 class NotePage extends Component {
@@ -11,26 +10,19 @@ class NotePage extends Component {
     componentDidMount(){
         if(!this.context.notes.length || !this.context.folders.length || !this.context.currentNote){
             this.context.fetchData()
-            console.log("hello")
-            console.log(this.context) //doesnt appear to be fetching data
-            /*const {props: {match}} = this.props
-        const note = this.context.notes.find(n =>
-            n.id === match.params.noteId)
-        console.log(note)
-        console.log(this.context)
-            //this.context.setNote(note)*/
+
         }
     }
 
-    /*componentWillUpdate(nextprops){
-       console.log(match.params)
+    componentWillUpdate(nextprops){
+       
         const {props: {match}} = nextprops
         const note = this.context.notes.find(n =>
             n.id == match.params.noteId)
             
         this.context.setNote(note)
         console.log(this.context.currentNote)
-    }*/
+    }
 
 
     /*componentWillMount(){
@@ -51,12 +43,14 @@ class NotePage extends Component {
         console.log(this.context)
             //this.context.setNote(note)*/
         
-
+console.log(this.context.currentNote)
         //for refreshing - wont return error on refresh
         if(!this.context.notes.length || !this.context.folders.length || !this.context.currentNote){
             return null
         }
-        console.log(this.context)
+        console.log("hello")
+        
+        
         return(<div className="contentContainer">
            <NoteSideBar/>
             <NoteMain/> 
@@ -66,5 +60,3 @@ class NotePage extends Component {
 }
 
 export default NotePage
-
-//<NoteSideBar />

@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import ApiContext from '../../ApiContext'
+import './NoteSideBar.css'
+import BackButton from '../BackButton/BackButton'
 
 class NoteSideBar extends Component {
     static contextType = ApiContext;
@@ -15,9 +17,11 @@ class NoteSideBar extends Component {
 
         let folderName = folder.name
 
-        return(<div className="sideBar">
-            <button>Go back</button>
-            {folderName}
+        console.log(folderName)
+
+        return(<div className="sideBar noteSideBar">
+            <BackButton/>
+            <p>{folderName}</p>
         </div>          
         )
     }
