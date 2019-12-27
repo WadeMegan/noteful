@@ -9,15 +9,29 @@ class Header extends Component {
 
     render(){
         return(
-            //empty div for styling purposes
-            <header>
-                <div></div> 
-                <Link to='/' onClick={()=>{this.context.setFolder(null)}}>
-                    Noteful
-                </Link>
-            </header>
+            <ApiContext.Consumer>
+            {(context)=>(
+                        <header>
+                        <div></div> 
+                        <Link to="/" onClick={()=>{this.context.setFolder(null)}}>
+                            Noteful
+                        </Link>
+                    </header>
+            )}
+            </ApiContext.Consumer>
+            
         )
     }
 }
 
 export default Header
+
+
+
+/*//empty div for styling purposes
+<header>
+<div></div> 
+<Link to="/" onClick={()=>{this.context.setFolder(null)}}>
+    Noteful
+</Link>
+</header>*/

@@ -41,7 +41,8 @@ class App extends Component {
   }
 
   setFolder = (folder) => {
-      this.setState({
+    
+    this.setState({
       currentFolder: folder
     }
     )
@@ -112,11 +113,11 @@ class App extends Component {
      <ApiContext.Provider value={value}>
         
         <main className='App'>
-    
+
         <Error>
           <Header/>
-            <BrowserRouter>
-            <div>
+          <div>
+           
             <Route 
               exact path='/'
               render={(props)=><HomePage/>}
@@ -137,8 +138,8 @@ class App extends Component {
               path='/AddNote'
               render={(props)=><AddNote/>}
             />
-            </div>
-        </BrowserRouter>
+            
+        </div>
        </Error>
         </main>
         
