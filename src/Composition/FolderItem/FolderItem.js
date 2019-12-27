@@ -7,7 +7,6 @@ class FolderItem extends Component {
     static contextType = ApiContext;
 
         checkFolder=()=>{
-            console.log(this.context.currentFolder)
             
             if(this.context.currentFolder===null){
                 return <li className="folderButton">
@@ -29,7 +28,6 @@ class FolderItem extends Component {
             }
 
         }
-            
 
         }
 

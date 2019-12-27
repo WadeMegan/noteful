@@ -5,7 +5,7 @@ import config from '../../config'
 import {Link} from 'react-router-dom'
 import BackButton from '../BackButton/BackButton'
 import './AddFolder.css'
-import { withRouter } from 'react-router-dom';
+import Error from '../../Error.js'
 
 
 class AddFolder extends Component{
@@ -27,7 +27,6 @@ class AddFolder extends Component{
             }
         }
     }
-
 
     updateFolderName(folderName){
         this.setState({folderName: {value:folderName,touched:true}})
@@ -72,7 +71,7 @@ class AddFolder extends Component{
 
         return(
             <ApiContext.Consumer>
-                {(context)=>(
+                {(context)=>(<Error>
                 <div className="contentContainer">
                     <div className="sideBar formSideBar">
                         <BackButton/>
@@ -90,6 +89,7 @@ class AddFolder extends Component{
                     </div>
                     
                 </div>
+                </Error>
                 )}
             </ApiContext.Consumer>
             
@@ -99,4 +99,3 @@ class AddFolder extends Component{
 
 export default AddFolder
 
-//<Link className="formSubmitLink" to='/'><button className="formSubmit" type="submit" disabled={this.validateFolderName()} onClick={()=>addFolderRequest(this.state.folderName.value, this.context.addFolder)}>Submit</button></Link>

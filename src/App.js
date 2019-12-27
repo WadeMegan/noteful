@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Route,BrowserRouter} from 'react-router-dom'
 import HomePage from './Composition/HomePage/HomePage'
-//import STORE from './Composition/dummy-store'
 import Header from './Composition/Header/Header'
 import FolderPage from './Composition/FolderPage/FolderPage'
 import NotePage from './Composition/NotePage/NotePage'
@@ -9,11 +8,8 @@ import './App.css'
 import config from './config'
 import ApiContext from './ApiContext';
 import AddFolder from './Composition/AddFolder/AddFolder'
-import { tsImportEqualsDeclaration } from '@babel/types';
-import { createDecipher } from 'crypto';
 import AddNote from './Composition/AddNote/AddNote'
 import Error from './Error'
-import PropTypes from 'prop-types'
 
 class App extends Component {
 
@@ -38,7 +34,6 @@ class App extends Component {
   }
 
   setNote = (note) => {
-    console.log(note)
     this.setState({
       currentNote: note
     }
@@ -46,8 +41,7 @@ class App extends Component {
   }
 
   setFolder = (folder) => {
-    console.log("set folde")
-    this.setState({
+      this.setState({
       currentFolder: folder
     }
     )
@@ -99,26 +93,11 @@ class App extends Component {
     this.fetchData()
 }
 
-componentDidUpdate(){
-  //this.fetchData()
-  //console.log(this.state.notes)
-}
-
-  /*constructor(props){
-    super(props)
-    let folders = STORE.folders
-    let notes = STORE.notes
-    this.state={
-      folders:folders,
-      notes:notes
-    }
-  }*/
 
   render(){
     const value = {
       notes:this.state.notes,
       folders:this.state.folders,
-      deleteNote:this.handleDeleteNote,
       currentNote:this.state.currentNote,
       currentFolder:this.state.currentFolder,
       setNote: this.setNote,
@@ -142,31 +121,24 @@ componentDidUpdate(){
               exact path='/'
               render={(props)=><HomePage/>}
             />
-
-  
             <Route
               path='/folder/:folderId'
               render={(props)=><FolderPage props={props}/>}
             />
-
-
             <Route 
               path='/note/:noteId'
               render={(props)=><NotePage props={props}/>}
             />
-
-
             <Route
               path='/AddFolder'
               render={(props)=><AddFolder/>}
             />
-
             <Route
               path='/AddNote'
               render={(props)=><AddNote/>}
             />
             </div>
-</BrowserRouter>
+        </BrowserRouter>
        </Error>
         </main>
         

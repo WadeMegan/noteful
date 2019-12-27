@@ -5,6 +5,8 @@ import {Link} from 'react-router-dom'
 import ValidationError from './ValidationError'
 import './AddNote.css'
 import BackButton from '../BackButton/BackButton'
+import Error from '../../Error.js'
+
 
 class AddNote extends Component{
     static contextType = ApiContext;
@@ -135,7 +137,7 @@ class AddNote extends Component{
 
         return(
             <ApiContext.Consumer>
-                {(context)=>(
+                {(context)=>(<Error>
                     <div className="contentContainer">
                         <div className="sideBar formSideBar">
                             <BackButton/>
@@ -168,6 +170,7 @@ class AddNote extends Component{
                             </form>
                         </div>
                     </div>
+                    </Error>
                 )}
             </ApiContext.Consumer>
             
