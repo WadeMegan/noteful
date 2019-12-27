@@ -7,18 +7,30 @@ class FolderItem extends Component {
     static contextType = ApiContext;
 
         checkFolder=()=>{
-            console.log(this.context.currentFolder.id)
-            console.log(this.props.folder.id)
-            if(this.context.currentFolder.id === this.props.folder.id){
-                return <li className="currentFolder folderButton">
-                {this.props.folder.name}
-            </li>
-            }
-            else{
+            console.log(this.context.currentFolder)
+            
+            if(this.context.currentFolder===null){
                 return <li className="folderButton">
+                {this.props.folder.name}</li>
+            }
+            
+            else if(this.context.currentFolder !==null){
+                if(this.context.currentFolder.id === this.props.folder.id){
+                    return <li className="currentFolder folderButton">
                     {this.props.folder.name}
                 </li>
+                        
+                }
+            else{
+                return <li className="folderButton">
+                {this.props.folder.name}
+            </li>
+
             }
+
+        }
+            
+
         }
 
     render(){

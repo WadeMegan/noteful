@@ -10,18 +10,21 @@ class NotePage extends Component {
     componentDidMount(){
         if(!this.context.notes.length || !this.context.folders.length || !this.context.currentNote){
             this.context.fetchData()
-
         }
     }
 
     componentWillUpdate(nextprops){
        
-        const {props: {match}} = nextprops
+
+        if(!this.context.currentNote){
+                   const {props: {match}} = nextprops
         const note = this.context.notes.find(n =>
             n.id == match.params.noteId)
             
         this.context.setNote(note)
         console.log(this.context.currentNote)
+        }
+ 
     }
 
 
@@ -43,7 +46,7 @@ class NotePage extends Component {
         console.log(this.context)
             //this.context.setNote(note)*/
         
-console.log(this.context.currentNote)
+console.log(this.context)
         //for refreshing - wont return error on refresh
         if(!this.context.notes.length || !this.context.folders.length || !this.context.currentNote){
             return null

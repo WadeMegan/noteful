@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './BackButton.css'
 import ApiContext from '../../ApiContext'
-import {Link} from 'react-router-dom';
+import {Route, Link} from 'react-router-dom';
 
 class BackButton extends Component {
     static contextType = ApiContext;
@@ -22,10 +22,10 @@ class BackButton extends Component {
 
         return(
             <ApiContext.Consumer>
+                
                 {(context)=>(
-                <Link to="/"><button className="backButton">Go back</button></Link> 
+                <Link to="/" className="backButton">Go back</Link> 
                 )}
-
             </ApiContext.Consumer>
         )
     }

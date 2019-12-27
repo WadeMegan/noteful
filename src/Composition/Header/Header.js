@@ -12,7 +12,7 @@ class Header extends Component {
             //empty div for styling purposes
             <header>
                 <div></div> 
-                <Link to='/' onClick={()=>{this.context.setFolder({})}}>
+                <Link to='/' onClick={()=>{this.context.setFolder(null)}}>
                     Noteful
                 </Link>
             </header>
