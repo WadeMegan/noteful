@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import DeleteButton from '../DeleteButton/DeleteButton'
 import ApiContext from '../../ApiContext'
 import './NoteItem.css'
-
+import PropTypes from 'prop-types';
 
 class NoteItem extends Component {
     static contextType = ApiContext;
@@ -26,5 +26,10 @@ class NoteItem extends Component {
         
     }
 }
+
+NoteItem.propTypes = {
+    note: PropTypes.object.isRequired
+}
+
 
 export default NoteItem

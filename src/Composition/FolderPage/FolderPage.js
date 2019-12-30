@@ -15,11 +15,11 @@ class FolderPage extends Component {
         }
     
         componentWillUpdate(nextprops){
-           
+           console.log(nextprops)
             if(!this.context.currentFolder){
                        
                 const {props: {match}} = nextprops
-            const folder = this.context.folders.find(f =>
+                const folder = this.context.folders.find(f =>
                 f.id === match.params.folderId)
             
             this.context.setFolder(folder)

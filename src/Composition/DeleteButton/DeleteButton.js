@@ -3,11 +3,11 @@ import ApiContext from '../../ApiContext'
 import config from '../../config'
 import {Link} from 'react-router-dom'
 import './DeleteButton.css'
+import PropTypes from 'prop-types';
+
 
 class DeleteButton extends Component {
     static contextType = ApiContext;
-    
-
     
     render(){
 
@@ -42,6 +42,10 @@ class DeleteButton extends Component {
             </ApiContext.Consumer>
         )
     }
+}
+
+DeleteButton.propTypes = {
+    noteId: PropTypes.string.isRequired
 }
 
 export default DeleteButton

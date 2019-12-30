@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import './FoldersItem.css';
 import ApiContext from '../../ApiContext'
+import PropTypes from 'prop-types';
 
 class FolderItem extends Component {
     static contextType = ApiContext;
@@ -41,5 +42,10 @@ class FolderItem extends Component {
         
     }
 }
+
+FolderItem.propTypes = {
+    folder: PropTypes.object.isRequired
+}
+
 
 export default FolderItem

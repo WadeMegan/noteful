@@ -19,11 +19,11 @@ class NotePage extends Component {
        
 
         if(!this.context.currentNote){
-                   const {props: {match}} = nextprops
-        const note = this.context.notes.find(n =>
-            n.id === match.params.noteId)
-            
-        this.context.setNote(note)
+            const {props: {match}} = nextprops
+            const note = this.context.notes.find(n =>
+                n.id === match.params.noteId)
+                
+            this.context.setNote(note)
         }
  
     }
