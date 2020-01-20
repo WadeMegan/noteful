@@ -24,7 +24,7 @@ class DeleteButton extends Component {
                         throw error
                     })
                 }
-                return res.json()
+                return res
             })
             .then(data=>{
                 callback(noteId)
@@ -45,7 +45,7 @@ class DeleteButton extends Component {
 }
 
 DeleteButton.propTypes = {
-    noteId: PropTypes.string.isRequired
+    noteId: PropTypes.number.isRequired
 }
 
 export default DeleteButton

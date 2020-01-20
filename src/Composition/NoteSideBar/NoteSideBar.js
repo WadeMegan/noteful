@@ -8,7 +8,7 @@ class NoteSideBar extends Component {
     render(){
 
         let folder = this.context.folders.find((item)=>{
-            return item.id===this.context.currentNote.folderId
+            return item.id===this.context.currentNote.folderid
         }) 
 
         let folderName = folder.name

@@ -29,7 +29,8 @@ class App extends Component {
       note.id !== noteId
     )
     this.setState({
-      notes: newNotes
+      notes: newNotes,
+      currentFolder: null
     })
   }
 

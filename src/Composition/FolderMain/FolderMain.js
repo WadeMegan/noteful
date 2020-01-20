@@ -10,7 +10,7 @@ class FolderMain extends Component {
         return(<div className="folderMain"> 
             {this.context.notes
                 .map((note,index)=>{
-                    if (this.context.currentFolder.id===note.folderId){
+                    if (this.context.currentFolder.id===note.folderid){
                         return(<NoteItem note={note} key={index}/>)
                     }
                 })

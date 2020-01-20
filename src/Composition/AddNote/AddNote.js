@@ -114,7 +114,7 @@ class AddNote extends Component{
             headers: {
                 'content-type':'application/json',
             },
-            body: JSON.stringify({"name":noteName,"folderId":folderId,"content":content,"modified":date})
+            body: JSON.stringify({"name":noteName,"folderid":folderId,"content":content,"modified":date})
         })
         .then(res=>{
             if(!res.ok){
