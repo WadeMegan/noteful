@@ -1,3 +1,3 @@
 export default {
-    API_ENDPOINT: 'http://localhost:8020/api'
+    API_ENDPOINT: 'https://shrouded-wave-60869.herokuapp.com/api'
   }
